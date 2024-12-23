@@ -5,6 +5,10 @@ VisualStudioVersion = 17.1.31911.260
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGator", "CodeGator\CodeGator.csproj", "{08925389-C935-F1C0-9A99-C97388FAC346}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99. Tests", "99. Tests", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGator.UnitTests", "..\tests\CodeGator.UnitTests\CodeGator.UnitTests.csproj", "{026419A4-7043-4CDC-B399-B7CAF4EFCCDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{08925389-C935-F1C0-9A99-C97388FAC346}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08925389-C935-F1C0-9A99-C97388FAC346}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08925389-C935-F1C0-9A99-C97388FAC346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{026419A4-7043-4CDC-B399-B7CAF4EFCCDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{026419A4-7043-4CDC-B399-B7CAF4EFCCDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{026419A4-7043-4CDC-B399-B7CAF4EFCCDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{026419A4-7043-4CDC-B399-B7CAF4EFCCDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{026419A4-7043-4CDC-B399-B7CAF4EFCCDD} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EEC32BA8-889C-4B43-9C02-A0A4AA7DFE38}
