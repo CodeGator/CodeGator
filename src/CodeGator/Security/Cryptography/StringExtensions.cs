@@ -59,26 +59,6 @@ public static partial class StringExtensions
     // *******************************************************************
 
     /// <summary>
-    /// This method reverses the characters in a string builder.
-    /// </summary>
-    /// <param name="builder">The string builder to use for the operation.</param>
-    /// <returns>A reversed version of the specified string.</returns>
-    public static StringBuilder Reverse(
-        [NotNull] this StringBuilder builder
-        )
-    {
-        for (int x = 0; x < builder.Length / 2; x++)
-        {
-            var temp = builder[builder.Length - x - 1];
-            builder[builder.Length - x - 1] = builder[x];
-            builder[x] = temp;
-        }
-        return builder;
-    }
-
-    // *******************************************************************
-
-    /// <summary>
     /// This method calculates an SHA256 hash for the given string.
     /// </summary>
     /// <param name="value">The value to be hashed.</param>
