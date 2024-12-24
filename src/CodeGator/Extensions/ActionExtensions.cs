@@ -26,7 +26,7 @@ public static partial class ActionExtensions
     /// number of concurrently running operations.</param>
     /// <param name="token">An optional cancellation token.</param>
     public static void WaitAll(
-        this IEnumerable<Action> actions,
+        [NotNull] this IEnumerable<Action> actions,
         int maxConcurrency,
         CancellationToken token = default
         )
@@ -61,7 +61,7 @@ public static partial class ActionExtensions
     /// <param name="token">An optional cancellation token.</param>
     /// <remarks>A task to perform the oepration.</remarks>
     public static async Task WhenAll(
-        this IEnumerable<Action> actions,
+        [NotNull] this IEnumerable<Action> actions,
         int maxConcurrency,
         CancellationToken token = default
         )

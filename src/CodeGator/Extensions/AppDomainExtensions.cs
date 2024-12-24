@@ -19,7 +19,7 @@ public static partial class AppDomainExtensions
     /// <exception cref="AppDomainUnloadedException">The operation was 
     /// attempted on an unloaded app-domain.</exception>
     public static string FriendlyNameEx(
-        this AppDomain appDomain,
+        [NotNull] this AppDomain appDomain,
         bool stripTrailingExtension = false
         )
     {

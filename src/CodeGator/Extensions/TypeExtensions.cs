@@ -26,7 +26,7 @@ public static partial class TypeExtensions
     /// the assemblies used in the operation.</param>
     /// <returns>An array of matching types.</returns>
     public static Type[] DerivedTypes(
-        this Type type,
+        [NotNull] this Type type,
         string assemblyWhiteList = "",
         string assemblyBlackList = "Microsoft.*,System.*,netstandard"
         )

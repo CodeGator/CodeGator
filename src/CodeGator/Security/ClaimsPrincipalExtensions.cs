@@ -23,7 +23,7 @@ public static partial class ClaimsPrincipalExtensions
     /// <returns>The value of the claim, or an empty string, if the claim
     /// wasn't found on the principal.</returns>
     public static string GetEmail(
-        this ClaimsPrincipal principal
+        [NotNull] this ClaimsPrincipal principal
         )
     {
         Guard.Instance().ThrowIfNull(principal, nameof(principal));
@@ -50,7 +50,7 @@ public static partial class ClaimsPrincipalExtensions
     /// <returns>The value of the claim, or an empty string, if the claim
     /// wasn't found on the principal.</returns>
     public static string GetNameIdentifier(
-        this ClaimsPrincipal claimsPrincipal
+        [NotNull] this ClaimsPrincipal claimsPrincipal
         )
     {
         var claim = claimsPrincipal.Claims.FirstOrDefault(
@@ -77,7 +77,7 @@ public static partial class ClaimsPrincipalExtensions
     /// <returns>The value of the claim, or an empty string, if the claim
     /// wasn't found on the principal.</returns>
     public static string GetNickName(
-        this ClaimsPrincipal claimsPrincipal
+        [NotNull] this ClaimsPrincipal claimsPrincipal
         )
     {
         var claim = claimsPrincipal.Claims.FirstOrDefault(
@@ -104,7 +104,7 @@ public static partial class ClaimsPrincipalExtensions
     /// <returns>The value of the claim, or an empty string, if the claim
     /// wasn't found on the principal.</returns>
     public static string GetName(
-        this ClaimsPrincipal claimsPrincipal
+        [NotNull] this ClaimsPrincipal claimsPrincipal
         )
     {
         var claim = claimsPrincipal.Claims.FirstOrDefault(
@@ -131,7 +131,7 @@ public static partial class ClaimsPrincipalExtensions
     /// <returns>The value of the claim, or an empty string, if the claim
     /// wasn't found on the principal.</returns>
     public static string GetPicture(
-        this ClaimsPrincipal claimsPrincipal
+        [NotNull] this ClaimsPrincipal claimsPrincipal
         )
     {
         var claim = claimsPrincipal.Claims.FirstOrDefault(

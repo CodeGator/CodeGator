@@ -41,8 +41,8 @@ public static partial class ObjectExtensions
     /// <exception cref="ArgumentException">This exception is thrown whenever
     /// one or more arguments are invalid, or missing.</exception>
     public static object? QuickClone(
-        this object source,
-        Type sourceType
+        [NotNull] this object source,
+        [NotNull] Type sourceType
         )
     {
         Guard.Instance().ThrowIfNull(source, nameof(source));
@@ -73,7 +73,7 @@ public static partial class ObjectExtensions
     /// <exception cref="ArgumentException">This exception is thrown whenever
     /// one or more arguments are invalid, or missing.</exception>
     public static T? QuickClone<T>(
-        this T source
+        [NotNull] this T source
         ) where T : class
     {
         Guard.Instance().ThrowIfNull(source, nameof(source));
@@ -116,8 +116,8 @@ public static partial class ObjectExtensions
     /// <exception cref="ArgumentException">This exception is thrown whenever
     /// one or more arguments are invalid, or missing.</exception>
     public static void QuickCopyTo(
-        this object source, 
-        object dest
+        [NotNull] this object source,
+        [NotNull] object dest
         )
     {
         Guard.Instance().ThrowIfNull(source, nameof(source));
