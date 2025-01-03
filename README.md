@@ -3,6 +3,10 @@
 
 [![Build Status](https://dev.azure.com/codegator/CodeGator/_apis/build/status%2FCodeGator.CodeGator?branchName=main)](https://dev.azure.com/codegator/CodeGator/_build/latest?definitionId=110&branchName=main)
 
+![NuGet Version](https://img.shields.io/nuget/v/CodeGator)
+
+![NuGet Downloads](https://img.shields.io/nuget/dt/CodeGator)
+
 #### What does it do?
 This package contains general framework elements used by various CodeGator solutions.
 
