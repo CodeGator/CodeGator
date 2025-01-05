@@ -1,15 +1,16 @@
 ﻿
 // I found this code here: https://stackoverflow.com/questions/59313256/deserialize-anonymous-type-with-system-text-json
+// Any bugs in my version are probably my fault.
 
 #pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace System.Text.Json;
 #pragma warning restore IDE0130 // Namespace does not match folder structure
 
 /// <summary>
-/// This class utility contains extensions to the <see cref="JsonSerializer"/>
+/// This class utility contains extensions to the <see cref="string"/>
 /// type.
 /// </summary>
-public static partial class JsonSerializerExtensions
+public static partial class StringExtensions
 {
     // *******************************************************************
     // Public methods.
