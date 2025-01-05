@@ -7,10 +7,10 @@ namespace System.Text.Json;
 #pragma warning restore IDE0130 // Namespace does not match folder structure
 
 /// <summary>
-/// This class utility contains extensions to the <see cref="string"/>
-/// type.
+/// This class utility contains things we wish Microsoft would add to the 
+/// <see cref="JsonSerializer"/> class.
 /// </summary>
-public static partial class StringExtensions
+public static partial class JsonSerializeHelper
 {
     // *******************************************************************
     // Public methods.
@@ -28,7 +28,7 @@ public static partial class StringExtensions
     /// <param name="options">The options to use for the operation.</param>
     /// <returns>The deserialized JSON.</returns>
     public static T? DeserializeAnonymousType<T>(
-        [NotNull] this string json,
+        this string json,
 #pragma warning disable IDE0060 // Remove unused parameter
         T anonymousTypeObject,
 #pragma warning restore IDE0060 // Remove unused parameter
