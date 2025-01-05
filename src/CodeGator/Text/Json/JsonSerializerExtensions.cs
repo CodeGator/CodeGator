@@ -27,7 +27,7 @@ public static partial class JsonSerializerExtensions
     /// <param name="options">The options to use for the operation.</param>
     /// <returns>The deserialized JSON.</returns>
     public static T? DeserializeAnonymousType<T>(
-        string json,
+        [NotNull] this string json,
 #pragma warning disable IDE0060 // Remove unused parameter
         T anonymousTypeObject,
 #pragma warning restore IDE0060 // Remove unused parameter
