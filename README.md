@@ -7,6 +7,8 @@
 
 ![NuGet Downloads](https://img.shields.io/nuget/dt/CodeGator)
 
+![logo](https://github.com/codegator/codegator/resources/codegator-167x79.png)
+
 #### What does it do?
 This package contains general framework elements used by various CodeGator solutions.
 
