@@ -1,8 +1,14 @@
 namespace CodeGator.UnitTests;
 
+/// <summary>
+/// This class verifies <see cref="global::System.Collections.Generic.EnumerableExtensions"/>.
+/// </summary>
 [TestClass]
 public sealed class EnumerableExtensionsTests
 {
+    /// <summary>
+    /// This method verifies DistinctOn keeps the first element for each key.
+    /// </summary>
     [TestMethod]
     public void DistinctOn_keeps_first_per_key()
     {
@@ -13,6 +19,9 @@ public sealed class EnumerableExtensionsTests
         CollectionAssert.AreEqual(new[] { (1, "a"), (3, "b") }, result);
     }
 
+    /// <summary>
+    /// This method verifies ApplyBlackList removes names matching a pattern.
+    /// </summary>
     [TestMethod]
     public void ApplyBlackList_filters_matching_names()
     {
@@ -23,6 +32,9 @@ public sealed class EnumerableExtensionsTests
         CollectionAssert.AreEqual(new[] { "MyApp.dll", "Other" }, result);
     }
 
+    /// <summary>
+    /// This method verifies ApplyWhiteList keeps only comma-separated matches.
+    /// </summary>
     [TestMethod]
     public void ApplyWhiteList_keeps_only_matches()
     {
@@ -33,6 +45,10 @@ public sealed class EnumerableExtensionsTests
         CollectionAssert.AreEqual(new[] { "A", "B" }, result);
     }
 
+    /// <summary>
+    /// This method verifies ToDictionaryAsync populates entries from async selectors.
+    /// </summary>
+    /// <returns>A task that completes when assertions finish.</returns>
     [TestMethod]
     public async Task ToDictionaryAsync_builds_dictionary()
     {
@@ -49,6 +65,9 @@ public sealed class EnumerableExtensionsTests
         Assert.AreEqual(20, dict[2]);
     }
 
+    /// <summary>
+    /// This method verifies ForEach invokes an action for every sequence element.
+    /// </summary>
     [TestMethod]
     public void ForEach_invokes_action_per_item()
     {
@@ -58,6 +77,9 @@ public sealed class EnumerableExtensionsTests
         Assert.AreEqual(6, sum);
     }
 
+    /// <summary>
+    /// This method verifies ForEach aggregates exceptions from failing callbacks.
+    /// </summary>
     [TestMethod]
     public void ForEach_collects_exceptions_in_aggregate()
     {

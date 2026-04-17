@@ -1,8 +1,14 @@
 namespace CodeGator.UnitTests;
 
+/// <summary>
+/// This class verifies <see cref="TemporaryStream"/> file-backed stream behavior.
+/// </summary>
 [TestClass]
 public sealed class TemporaryStreamTests
 {
+    /// <summary>
+    /// This method verifies write, read, and temp file cleanup after disposal.
+    /// </summary>
     [TestMethod]
     public void Write_read_delete_on_dispose()
     {

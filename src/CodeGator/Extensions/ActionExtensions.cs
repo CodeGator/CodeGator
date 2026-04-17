@@ -9,11 +9,6 @@ namespace System;
 /// </summary>
 public static partial class ActionExtensions
 {
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
 
     /// <summary>
     /// This method runs the collection of actions while limiting the number
@@ -25,6 +20,7 @@ public static partial class ActionExtensions
     /// operations to the set value. If it is -1, there is no limit on the 
     /// number of concurrently running operations.</param>
     /// <param name="token">An optional cancellation token.</param>
+    /// <exception cref="OperationCanceledException">Thrown when <paramref name="token"/> requests cancellation.</exception>
     public static void WaitAll(
         [NotNull] this IEnumerable<Action> actions,
         int maxConcurrency,
@@ -47,7 +43,6 @@ public static partial class ActionExtensions
             );
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method runs the collection of actions while limiting the number
@@ -59,7 +54,8 @@ public static partial class ActionExtensions
     /// operations to the set value. If it is -1, there is no limit on the 
     /// number of concurrently running operations.</param>
     /// <param name="token">An optional cancellation token.</param>
-    /// <remarks>A task to perform the oepration.</remarks>
+    /// <returns>A task that completes when all actions have finished.</returns>
+    /// <exception cref="OperationCanceledException">Thrown when <paramref name="token"/> requests cancellation.</exception>
     public static async Task WhenAll(
         [NotNull] this IEnumerable<Action> actions,
         int maxConcurrency,
@@ -84,6 +80,4 @@ public static partial class ActionExtensions
         }, token
         ).ConfigureAwait(false);
     }
-
-    #endregion
 }

@@ -9,18 +9,12 @@ namespace System.Reflection;
 /// </summary>
 public static partial class AssemblyExtensions
 {
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
 
     /// <summary>
-    /// Reads the value of the <see cref="AssemblyFileVersionAttribute"/>
-    /// attribute for the given assembly.
+    /// This method reads the assembly file-version attribute value, if present.
     /// </summary>
-    /// <param name="assembly">The assembly to read from.</param>
-    /// <returns>The value of the given assembly's file version attribute.</returns>
+    /// <param name="assembly">The assembly whose metadata is read.</param>
+    /// <returns>The file version string, or an empty string when it is missing.</returns>
     public static string ReadFileVersion(this Assembly assembly)
     {
         object[] attributes = assembly.GetCustomAttributes(
@@ -40,6 +34,4 @@ public static partial class AssemblyExtensions
 
         return attr.Version;
     }
-
-    #endregion
 }

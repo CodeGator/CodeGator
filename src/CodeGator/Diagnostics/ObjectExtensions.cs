@@ -1,4 +1,4 @@
-﻿
+
 #pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace System.Diagnostics;
 #pragma warning restore IDE0130 // Namespace does not match folder structure
@@ -9,22 +9,15 @@ namespace System.Diagnostics;
 /// </summary>
 public static partial class ObjectExtensions
 {
-    // *******************************************************************
-    // Types.
-    // *******************************************************************
-
-    #region Types
-
     /// <summary>
-    /// This class is a custom expression visitor, for de-constructing LINQ
-    /// expressions at runtime.
+    /// This class collects expression nodes for reflection-based member access.
     /// </summary>
 #pragma warning disable IDE1006 // Naming Styles
     private class _ExpressionVisitor : ExpressionVisitor
 #pragma warning restore IDE1006 // Naming Styles
     {
         /// <summary>
-        /// This property contains a stack of expression parts.
+        /// This property holds visited expression fragments from innermost outward.
         /// </summary>
         public List<Expression> Expressions { get; } = [];
 
@@ -50,14 +43,6 @@ public static partial class ObjectExtensions
             return base.VisitMember(node);
         }
     }
-
-    #endregion
-
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
 
     /// <summary>
     /// This method reads a field specified by a LINQ expression and returns 
@@ -126,7 +111,6 @@ public static partial class ObjectExtensions
         return true;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method reads a property specified by a LINQ expression and returns 
@@ -195,7 +179,6 @@ public static partial class ObjectExtensions
         return true;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method reads a field value from the specified object.
@@ -246,7 +229,6 @@ public static partial class ObjectExtensions
         return value;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method reads a field value from the specified object.
@@ -308,7 +290,6 @@ public static partial class ObjectExtensions
         return (T?)value;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method writes a field value for the specified object.
@@ -352,7 +333,6 @@ public static partial class ObjectExtensions
         fi.SetValue(obj, value);
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method reads a property value from the specified object.
@@ -414,7 +394,6 @@ public static partial class ObjectExtensions
         return value;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method reads a property value from the specified object.
@@ -482,7 +461,6 @@ public static partial class ObjectExtensions
         return (T?)value;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method writes a property value on the specified object.
@@ -492,12 +470,6 @@ public static partial class ObjectExtensions
     /// <param name="value">The value to use for the operation.</param>
     /// <param name="includeProtected">Determines if protected properties are 
     /// included in the search.</param>
-    /// <remarks>
-    /// <para>The idea, with this method, is to use reflection to go find
-    /// a property on an object and set the value at runtime. The intent is 
-    /// to use this sparingly because the performance isn't great. I see
-    /// this approach as something useful for things like unit testing.</para>
-    /// </remarks>
     /// <remarks>
     /// <para>The idea, with this method, is to use reflection to go find
     /// a property on an object and set the value at runtime. The intent is 
@@ -536,6 +508,4 @@ public static partial class ObjectExtensions
 
         pi.SetValue(obj, (object)value);
     }
-
-    #endregion
 }

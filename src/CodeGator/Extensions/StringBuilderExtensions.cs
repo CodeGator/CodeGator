@@ -9,11 +9,6 @@ namespace System.Text;
 /// </summary>
 public static partial class StringBuilderExtensions
 {
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
 
     /// <summary>
     /// This method reverses the characters in a string.
@@ -35,6 +30,4 @@ public static partial class StringBuilderExtensions
 
         return builder;
     }
-
-    #endregion
 }

@@ -9,11 +9,6 @@ namespace System.IO;
 /// </summary>
 public static partial class GuardExtensions
 {
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
 
     /// <summary>
     /// This method throws an exception if the <paramref name="argValue"/>
@@ -73,7 +68,6 @@ public static partial class GuardExtensions
         return guard;
     }
 
-    // ******************************************************************
 
     /// <summary>
     /// This method throws an exception if the <paramref name="argValue"/>
@@ -134,7 +128,6 @@ public static partial class GuardExtensions
         return guard;
     }
 
-    // ******************************************************************
 
     /// <summary>
     /// This method throws an exception if the <paramref name="argValue"/> 
@@ -194,7 +187,6 @@ public static partial class GuardExtensions
         return guard;
     }
 
-    // ******************************************************************
 
     /// <summary>
     /// This method throws an exception if the <paramref name="argValue"/>
@@ -256,7 +248,6 @@ public static partial class GuardExtensions
         return guard;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method throws an exception if the <paramref name="argValue"/>
@@ -315,6 +306,4 @@ public static partial class GuardExtensions
 
         return guard;
     }
-
-    #endregion
 }

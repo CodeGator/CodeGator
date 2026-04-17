@@ -1,8 +1,14 @@
 namespace CodeGator.UnitTests;
 
+/// <summary>
+/// This class verifies <see cref="global::System.StringExtensions"/> helpers.
+/// </summary>
 [TestClass]
 public sealed class StringExtensionsTests
 {
+    /// <summary>
+    /// This method verifies IsMatch treats literal equality as expected.
+    /// </summary>
     [TestMethod]
     public void IsMatch_literal_equal_returns_true()
     {
@@ -10,6 +16,9 @@ public sealed class StringExtensionsTests
         Assert.IsFalse("hello".IsMatch("world"));
     }
 
+    /// <summary>
+    /// This method verifies IsMatch applies wildcards on the right-hand pattern.
+    /// </summary>
     [TestMethod]
     public void IsMatch_wildcard_on_rhs_matches()
     {
@@ -18,6 +27,9 @@ public sealed class StringExtensionsTests
         Assert.IsFalse("ab".IsMatch("a?c"));
     }
 
+    /// <summary>
+    /// This method verifies IsMatch applies wildcards on the left-hand pattern.
+    /// </summary>
     [TestMethod]
     public void IsMatch_wildcard_on_lhs_matches()
     {
@@ -25,6 +37,9 @@ public sealed class StringExtensionsTests
         Assert.IsTrue("xay".IsMatch("?a?"));
     }
 
+    /// <summary>
+    /// This method verifies ReplaceFriendlyNameToken substitutes the friendly name token.
+    /// </summary>
     [TestMethod]
     public void ReplaceFriendlyNameToken_replaces_token_with_domain_name()
     {
@@ -34,6 +49,9 @@ public sealed class StringExtensionsTests
         StringAssert.Contains(result, name);
     }
 
+    /// <summary>
+    /// This method verifies ReplaceTimeToken replaces a whole-string time token.
+    /// </summary>
     [TestMethod]
     public void ReplaceTimeToken_replaces_when_whole_string_is_token()
     {
@@ -43,6 +61,9 @@ public sealed class StringExtensionsTests
         Assert.IsTrue(result.Length > 0);
     }
 
+    /// <summary>
+    /// This method verifies ReplaceTimeToken leaves embedded tokens unchanged.
+    /// </summary>
     [TestMethod]
     public void ReplaceTimeToken_leaves_non_token_unchanged()
     {
@@ -50,6 +71,9 @@ public sealed class StringExtensionsTests
         Assert.AreEqual(s, s.ReplaceTimeToken());
     }
 
+    /// <summary>
+    /// This method verifies ReplaceTimeUtcToken replaces a whole-string UTC token.
+    /// </summary>
     [TestMethod]
     public void ReplaceTimeUtcToken_replaces_when_whole_string_is_token()
     {
@@ -58,6 +82,9 @@ public sealed class StringExtensionsTests
         Assert.IsFalse(result.Contains("[NowUtc]", StringComparison.OrdinalIgnoreCase));
     }
 
+    /// <summary>
+    /// This method verifies ReplaceDriveToken substitutes the drive letter token prefix.
+    /// </summary>
     [TestMethod]
     public void ReplaceDriveToken_replaces_prefix()
     {
@@ -69,6 +96,9 @@ public sealed class StringExtensionsTests
             result);
     }
 
+    /// <summary>
+    /// This method verifies Obfuscate returns short strings unchanged for wide masks.
+    /// </summary>
     [TestMethod]
     public void Obfuscate_short_or_equal_length_returns_original()
     {
@@ -76,6 +106,9 @@ public sealed class StringExtensionsTests
         Assert.AreEqual("abcd", "abcd".Obfuscate(4));
     }
 
+    /// <summary>
+    /// This method verifies Obfuscate masks characters beyond the visible prefix length.
+    /// </summary>
     [TestMethod]
     public void Obfuscate_masks_suffix()
     {

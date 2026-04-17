@@ -11,11 +11,6 @@ namespace System.Security.Cryptography;
 /// </summary>
 public static partial class RandomNumberGeneratorExtensions
 {
-    // *******************************************************************
-    // Fields.
-    // *******************************************************************
-
-    #region Fields
 
     /// <summary>
     /// This field contains mixed case alphanumeric characters for generating strings.
@@ -46,13 +41,6 @@ public static partial class RandomNumberGeneratorExtensions
     private static readonly char[] _symbChars = 
         "~!@#$%^&*()[];:<>,.-=_+".ToCharArray();
 
-    #endregion
-
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
 
     /// <summary>
     /// This method generates a string of random alphanumeric characters.
@@ -99,20 +87,19 @@ public static partial class RandomNumberGeneratorExtensions
         return result;
     }
 
-    // *******************************************************************
 
     /// <summary>
-    /// This method returns a random integer who's value has been constrained
-    /// to be within the range specified by the <paramref name="min"/> and
-    /// <paramref name="max"/> parameters.
+    /// This method returns a random integer constrained between min and max.
     /// </summary>
     /// <param name="random">The random number generator to use for the 
     /// operation.</param>
-    /// <param name="min">The lower value for the range.</param>
-    /// <param name="max">The upper value for the range.</param>
-    /// <returns>A randon integer who's value has been constrained
-    /// to be within the range specified by the <paramref name="min"/> and
-    /// <paramref name="max"/> parameters.</returns>
+    /// <param name="min">The inclusive lower bound for the range.</param>
+    /// <param name="max">The exclusive upper bound for the range.</param>
+    /// <returns>A pseudo-random integer drawn between the supplied bounds.</returns>
+    /// <remarks>
+    /// <para>The <paramref name="max"/> value is treated as exclusive, consistent with
+    /// <see cref="Random.Next(int, int)"/>.</para>
+    /// </remarks>
     /// <example>
     /// This example shows how to call the <see cref="RandomNumberGeneratorExtensions.Next(RandomNumberGenerator, int, int)"/>
     /// method.
@@ -149,7 +136,6 @@ public static partial class RandomNumberGeneratorExtensions
 
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method returns a random integer value.
@@ -185,7 +171,6 @@ public static partial class RandomNumberGeneratorExtensions
         return result;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method returns a random numeric value.
@@ -232,7 +217,6 @@ public static partial class RandomNumberGeneratorExtensions
         return result;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method returns a string with random symbols.
@@ -278,7 +262,6 @@ public static partial class RandomNumberGeneratorExtensions
         return result;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method returns a string with upper case alpha characters.
@@ -324,7 +307,6 @@ public static partial class RandomNumberGeneratorExtensions
         return result;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method returns a string with lower case alpha characters.
@@ -370,7 +352,6 @@ public static partial class RandomNumberGeneratorExtensions
         return result;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method returns a string with randomly shuffled characters.
@@ -413,6 +394,4 @@ public static partial class RandomNumberGeneratorExtensions
         var result = sb.ToString();
         return result;
     }
-
-    #endregion
 }

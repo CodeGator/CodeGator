@@ -2,45 +2,31 @@
 namespace System.IO;
 
 /// <summary>
-/// This class is a temporary implementation of <see cref="Stream"/> backed
-/// by a temporary disk file.
+/// This class wraps a temp file-backed stream for short-lived binary I/O.
 /// </summary>
 public class TemporaryStream : Stream
 {
-    // *******************************************************************
-    // Properties.
-    // *******************************************************************
-
-    #region Properties
 
     /// <summary>
-    /// This property contains the name of the underlying base stream.
+    /// This property holds the file path of the underlying temporary file.
     /// </summary>
     public string Name
     {
         get { return BaseStream.Name; }
     }
 
-    // *******************************************************************
 
     /// <summary>
-    /// This property contains a reference to a base stream.
+    /// This property holds the backing file stream used for read and write operations.
     /// </summary>
     protected FileStream BaseStream { get; private set; }
 
-    #endregion
-
-    // *******************************************************************
-    // Constructors.
-    // *******************************************************************
-
-    #region Constructors
 
     /// <summary>
-    /// This constructor creates a new instance of the <see cref="TemporaryStream"/>
-    /// class.
+    /// This constructor initializes a new instance of the TemporaryStream class.
     /// </summary>
-    /// <param name="ext">An optional extension for the underlying disk file.</param>
+    /// <param name="ext">Optional extension applied to the temporary file name.</param>
+    /// <exception cref="ArgumentException">Thrown when <paramref name="ext"/> is not a valid file extension.</exception>
     public TemporaryStream(
         string ext = ".tmp"
         )
@@ -55,59 +41,45 @@ public class TemporaryStream : Stream
             );
     }
 
-    #endregion
-
-    // *******************************************************************
-    // Stream overrides.
-    // *******************************************************************
-
-    #region Stream overrides
 
     /// <summary>
-    /// This property gets a value indicating whether the current stream 
-    /// supports reading.
+    /// This property indicates whether the stream supports read operations.
     /// </summary>
     public override bool CanRead
     {
         get { return BaseStream.CanRead; }
     }
 
-    // *******************************************************************
 
     /// <summary>
-    /// This property gets a value indicating whether the current stream 
-    /// supports seeking.
+    /// This property indicates whether the stream supports seek operations.
     /// </summary>
     public override bool CanSeek
     {
         get { return BaseStream.CanSeek; }
     }
 
-    // *******************************************************************
 
     /// <summary>
-    /// This property gets a value indicating whether the current stream 
-    /// supports writing.
+    /// This property indicates whether the stream supports write operations.
     /// </summary>
     public override bool CanWrite
     {
         get { return BaseStream.CanWrite; }
     }
 
-    // *******************************************************************
 
     /// <summary>
-    /// This property gets the length in bytes of the stream.
+    /// This property holds the length of the stream in bytes.
     /// </summary>
     public override long Length
     {
         get { return BaseStream.Length; }
     }
 
-    // *******************************************************************
 
     /// <summary>
-    /// This property gets or sets the current position of this stream.
+    /// This property gets or sets the current byte offset within the stream.
     /// </summary>
     public override long Position
     {
@@ -115,22 +87,18 @@ public class TemporaryStream : Stream
         set { BaseStream.Position = value; }
     }
 
-    // *******************************************************************
 
     /// <summary>
-    /// This method clears buffers for this stream and causes any buffered 
-    /// data to be written to the underlying storage.
+    /// This method clears buffers and commits buffered data to the temp file.
     /// </summary>
     public override void Flush()
     {
         BaseStream.Flush();
     }
 
-    // *******************************************************************
 
     /// <summary>
-    /// This method reads a block of bytes from the stream and writes the 
-    /// data in a given buffer.
+    /// This method reads bytes from the stream into the supplied buffer.
     /// </summary>
     /// <param name="buffer">When this method returns, contains the specified 
     /// byte array with the values between offset and (offset + count - 1) 
@@ -155,11 +123,9 @@ public class TemporaryStream : Stream
             );
     }
 
-    // *******************************************************************
 
     /// <summary>
-    /// This method sets the current position of this stream to the given 
-    /// value.
+    /// This method sets the stream position relative to the specified origin.
     /// </summary>
     /// <param name="offset">The point relative to origin from which to 
     /// begin seeking.</param>
@@ -178,10 +144,9 @@ public class TemporaryStream : Stream
             );
     }
 
-    // *******************************************************************
 
     /// <summary>
-    /// This method sets the length of this stream to the given value.
+    /// This method sets the length of the stream to the specified byte count.
     /// </summary>
     /// <param name="value">The new length of the stream.</param>
     public override void SetLength(
@@ -191,10 +156,9 @@ public class TemporaryStream : Stream
         BaseStream.SetLength(value);
     }
 
-    // *******************************************************************
 
     /// <summary>
-    /// This method writes a block of bytes to the file stream.
+    /// This method writes bytes from the buffer to the underlying file stream.
     /// </summary>
     /// <param name="buffer">The buffer containing data to write to the 
     /// stream.</param>
@@ -214,11 +178,9 @@ public class TemporaryStream : Stream
             );
     }
 
-    // *******************************************************************
 
     /// <summary>
-    /// This method releases the unmanaged resources used by the <see cref="FileStream"/>
-    /// and optionally releases the managed resources.
+    /// This method releases the temporary file and underlying stream resources.
     /// </summary>
     /// <param name="disposing">True to release both managed and unmanaged 
     /// resources; false to release only unmanaged resources.</param>
@@ -235,6 +197,4 @@ public class TemporaryStream : Stream
         }
         base.Dispose(disposing);
     }
-
-    #endregion
 }

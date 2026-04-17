@@ -1,4 +1,4 @@
-﻿
+
 #pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace System.Collections;
 #pragma warning restore IDE0130 // Namespace does not match folder structure
@@ -9,12 +9,6 @@ namespace System.Collections;
 /// </summary>
 public static partial class GuardExtensions
 {
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
-
     /// <summary>
     /// This method throws an exception if the <paramref name="argValue"/> 
     /// argument contains an empty collection.
@@ -73,5 +67,4 @@ public static partial class GuardExtensions
         return guard;
     }
 
-    #endregion
 }

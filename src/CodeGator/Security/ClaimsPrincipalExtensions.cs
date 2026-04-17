@@ -9,11 +9,6 @@ namespace System.Security.Claims;
 /// </summary>
 public static partial class ClaimsPrincipalExtensions
 {
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
 
     /// <summary>
     /// This method returns the value of the email claim, if it exists, in
@@ -40,7 +35,6 @@ public static partial class ClaimsPrincipalExtensions
         return string.Empty;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method returns the value of the name identifier claim, if it 
@@ -67,7 +61,6 @@ public static partial class ClaimsPrincipalExtensions
         }
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method returns the value of the nickname claim, if it 
@@ -94,7 +87,6 @@ public static partial class ClaimsPrincipalExtensions
         }
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method returns the value of the name claim, if it 
@@ -121,7 +113,6 @@ public static partial class ClaimsPrincipalExtensions
         }
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method returns the value of the picture claim, if it 
@@ -147,6 +138,4 @@ public static partial class ClaimsPrincipalExtensions
             return String.Empty;
         }
     }
-
-    #endregion
 }

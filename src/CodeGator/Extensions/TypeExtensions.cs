@@ -9,11 +9,6 @@ namespace System;
 /// </summary>
 public static partial class TypeExtensions
 {
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
 
     /// <summary>
     /// This method returns a list of all the public, concrete types that 
@@ -65,6 +60,4 @@ public static partial class TypeExtensions
 
         return [..types];
     }
-
-    #endregion
 }

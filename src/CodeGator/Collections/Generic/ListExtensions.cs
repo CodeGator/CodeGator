@@ -9,12 +9,6 @@ namespace System.Collections.Generic;
 /// </summary>
 public static partial class ListExtensions
 {
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
-
     /// <summary>
     /// This method removes a range of elements from a <see cref="IList{T}"/> list.
     /// </summary>
@@ -37,18 +31,14 @@ public static partial class ListExtensions
         (list as List<T>)?.RemoveRange(index, count);
     }
 
-    // *******************************************************************
+
 
     /// <summary>
-    ///  This method adds the elements of the specified collection to the 
-    ///  end of the <see cref="IList{T}"/>.
+    /// This method appends the elements of a collection to the end of a list.
     /// </summary>
     /// <typeparam name="T">The type of elements in the list.</typeparam>
     /// <param name="list">The list to use for the operation.</param>
-    /// <param name="collection">The collection whose elements should be 
-    /// added to the end of the <see cref="IEnumerable{T}"/>
-    /// The collection itself cannot be null, but it can contain elements 
-    /// that are null, if type T is a reference type.</param>
+    /// <param name="collection">The items to append; null elements are allowed when <typeparamref name="T"/> is a reference type.</param>
     /// <remarks>
     /// <para>The intent, with this method, is to quickly add a range
     /// of elements from one list, into another.</para>
@@ -64,7 +54,7 @@ public static partial class ListExtensions
         (list as List<T>)?.AddRange(collection);
     }
 
-    // *******************************************************************
+
 
     /// <summary>
     /// This method recursively iterates through an enumerable sequence
@@ -146,7 +136,6 @@ public static partial class ListExtensions
         sequence.AsEnumerable().ForEach(selector, action);
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method iterates through an enumerable sequence applying the 
@@ -197,7 +186,6 @@ public static partial class ListExtensions
         sequence.AsEnumerable().ForEach(action);
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method randomly shuffles the contents of the given list.
@@ -216,7 +204,6 @@ public static partial class ListExtensions
         return list.Shuffle(rnd);
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method randomly shuffles the contents of the given list.
@@ -251,6 +238,4 @@ public static partial class ListExtensions
 
         return list;
     }
-
-    #endregion
 }

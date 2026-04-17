@@ -9,11 +9,6 @@ namespace System;
 /// </summary>
 public static partial class ObjectExtensions
 {
-    // *******************************************************************
-    // Fields.
-    // *******************************************************************
-
-    #region Fields
 
     /// <summary>
     /// This field contains cached JSON serialization options.
@@ -24,13 +19,6 @@ public static partial class ObjectExtensions
             ReferenceHandler = ReferenceHandler.Preserve
         };
 
-    #endregion
-
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
 
     /// <summary>
     /// This method performs a quick clone of the specified object.
@@ -62,7 +50,6 @@ public static partial class ObjectExtensions
         return obj;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method performs a quick clone of the specified object.
@@ -105,7 +92,6 @@ public static partial class ObjectExtensions
         }
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method performs a quick copy from the source object to the 
@@ -163,6 +149,4 @@ public static partial class ObjectExtensions
             }
         }
     }
-
-    #endregion
 }

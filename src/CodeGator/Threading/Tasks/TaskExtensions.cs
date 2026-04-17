@@ -9,11 +9,6 @@ namespace System.Threading.Tasks;
 /// </summary>
 public static partial class TaskExtensions
 {
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
 
     /// <summary>
     /// This method runs the collection of tasks while limiting the number
@@ -27,6 +22,7 @@ public static partial class TaskExtensions
     /// <param name="maxTimeout">The maximum number of milliseconds to wait
     /// for the operations to finish.</param>
     /// <param name="token">An optional cancellation token.</param>
+    /// <exception cref="OperationCanceledException">Thrown when <paramref name="token"/> requests cancellation.</exception>
     public static void WaitAll(
         this IEnumerable<Task> tasks,
         int maxConcurrency,
@@ -76,7 +72,6 @@ public static partial class TaskExtensions
 #pragma warning restore IDE0063 // Use simple 'using' statement
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method runs the collection of tasks while limiting the number
@@ -90,7 +85,8 @@ public static partial class TaskExtensions
     /// <param name="maxTimeout">The maximum number of milliseconds to wait
     /// for the operations to finish.</param>
     /// <param name="token">An optional cancellation token.</param>
-    /// <remarks>A task to perform the operation.</remarks>
+    /// <returns>A task that completes when the scheduled work has finished.</returns>
+    /// <exception cref="OperationCanceledException">Thrown when <paramref name="token"/> requests cancellation.</exception>
     public static async Task WhenAll(
         this IEnumerable<Task> tasks,
         int maxConcurrency,
@@ -112,6 +108,4 @@ public static partial class TaskExtensions
         cancellationToken: token
         ).ConfigureAwait(false);
     }
-
-    #endregion
 }

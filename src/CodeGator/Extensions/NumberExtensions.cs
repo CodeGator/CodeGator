@@ -4,16 +4,10 @@ namespace System;
 #pragma warning restore IDE0130
 
 /// <summary>
-/// This class contains extension methods related to the <see cref="string"/>
-/// type.
+/// This class provides extension methods that format numeric values as byte sizes.
 /// </summary>
 public static partial class NumberExtensions
 {
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
 
     /// <summary>
     /// This method formats the specified value as bytes.
@@ -30,7 +24,6 @@ public static partial class NumberExtensions
         return FormattedAsBytes((long)value, decimalPlaces);
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method formats the specified value as bytes.
@@ -47,7 +40,6 @@ public static partial class NumberExtensions
         return FormattedAsBytes((long)value, decimalPlaces);
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method formats the specified value as bytes.
@@ -64,7 +56,6 @@ public static partial class NumberExtensions
         return FormattedAsBytes((long)value, decimalPlaces);
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method formats the specified value as bytes.
@@ -81,7 +72,6 @@ public static partial class NumberExtensions
         return FormattedAsBytes((long)value, decimalPlaces);
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method formats the specified value as bytes.
@@ -133,6 +123,4 @@ public static partial class NumberExtensions
 
         return formatted;
     }
-
-    #endregion
 }

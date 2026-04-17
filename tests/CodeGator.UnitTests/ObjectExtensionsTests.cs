@@ -1,5 +1,8 @@
 namespace CodeGator.UnitTests;
 
+/// <summary>
+/// This class verifies <see cref="global::System.ObjectExtensions"/> cloning helpers.
+/// </summary>
 [TestClass]
 public sealed class ObjectExtensionsTests
 {
@@ -9,6 +12,9 @@ public sealed class ObjectExtensionsTests
         public string Name { get; set; } = "";
     }
 
+    /// <summary>
+    /// This method verifies QuickClone returns a distinct copy with equal fields.
+    /// </summary>
     [TestMethod]
     public void QuickClone_copies_values()
     {
@@ -22,6 +28,9 @@ public sealed class ObjectExtensionsTests
         Assert.AreEqual("x", b.Name);
     }
 
+    /// <summary>
+    /// This method verifies QuickClone with an explicit runtime type succeeds.
+    /// </summary>
     [TestMethod]
     public void QuickClone_non_generic_with_runtime_type()
     {
@@ -33,6 +42,9 @@ public sealed class ObjectExtensionsTests
         Assert.AreEqual(7, b!.Id);
     }
 
+    /// <summary>
+    /// This method verifies QuickCopyTo copies overlapping properties onto a target.
+    /// </summary>
     [TestMethod]
     public void QuickCopyTo_copies_simple_properties()
     {

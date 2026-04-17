@@ -1,8 +1,14 @@
 namespace CodeGator.UnitTests;
 
+/// <summary>
+/// This class verifies <see cref="global::System.Collections.Generic.ListExtensions"/> helpers.
+/// </summary>
 [TestClass]
 public sealed class ListExtensionsTests
 {
+    /// <summary>
+    /// This method verifies AddRange appends every element from the source sequence.
+    /// </summary>
     [TestMethod]
     public void AddRange_appends_to_list()
     {
@@ -12,6 +18,9 @@ public sealed class ListExtensionsTests
         CollectionAssert.AreEqual(new[] { 1, 2, 3 }, list);
     }
 
+    /// <summary>
+    /// This method verifies RemoveRange deletes the requested contiguous slice.
+    /// </summary>
     [TestMethod]
     public void RemoveRange_removes_slice()
     {
@@ -21,6 +30,9 @@ public sealed class ListExtensionsTests
         CollectionAssert.AreEqual(new[] { 1, 4 }, list);
     }
 
+    /// <summary>
+    /// This method verifies ForEach on lists invokes the callback per element.
+    /// </summary>
     [TestMethod]
     public void ForEach_on_list_delegates()
     {
@@ -30,6 +42,9 @@ public sealed class ListExtensionsTests
         Assert.AreEqual(3, sum);
     }
 
+    /// <summary>
+    /// This method verifies Shuffle returns the same instance for an empty list.
+    /// </summary>
     [TestMethod]
     public void Shuffle_empty_returns_same_instance()
     {
@@ -39,6 +54,9 @@ public sealed class ListExtensionsTests
         Assert.AreSame(list, returned);
     }
 
+    /// <summary>
+    /// This method verifies Shuffle preserves multiset membership after shuffling.
+    /// </summary>
     [TestMethod]
     public void Shuffle_preserves_multiset()
     {

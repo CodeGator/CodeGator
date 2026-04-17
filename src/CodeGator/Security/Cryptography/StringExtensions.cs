@@ -9,11 +9,6 @@ namespace System.Security.Cryptography;
 /// </summary>
 public static partial class StringExtensions
 {
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
 
     /// <summary>
     /// This method randomly shuffles the characters in the given string.
@@ -31,7 +26,6 @@ public static partial class StringExtensions
         return builder.Shuffle(rnd);
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method randomly shuffles the characters in the given
@@ -56,7 +50,6 @@ public static partial class StringExtensions
         return builder;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method calculates an SHA256 hash for the given string.
@@ -79,7 +72,6 @@ public static partial class StringExtensions
         return base64;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method calculates an SHA512 hash for the given string.
@@ -101,6 +93,4 @@ public static partial class StringExtensions
         var base64 = Convert.ToBase64String(hash);
         return base64;
     }
-
-    #endregion
 }

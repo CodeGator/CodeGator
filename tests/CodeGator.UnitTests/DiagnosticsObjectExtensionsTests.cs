@@ -1,5 +1,8 @@
 namespace CodeGator.UnitTests;
 
+/// <summary>
+/// This class verifies <see cref="global::System.Diagnostics.ObjectExtensions"/> helpers.
+/// </summary>
 [TestClass]
 public sealed class DiagnosticsObjectExtensionsTests
 {
@@ -11,6 +14,9 @@ public sealed class DiagnosticsObjectExtensionsTests
         public string GetFieldValue() => _field;
     }
 
+    /// <summary>
+    /// This method verifies GetPropertyValue reads a public property by name.
+    /// </summary>
     [TestMethod]
     public void GetPropertyValue_by_name()
     {
@@ -21,6 +27,9 @@ public sealed class DiagnosticsObjectExtensionsTests
         Assert.AreEqual(9, v);
     }
 
+    /// <summary>
+    /// This method verifies SetPropertyValue writes a public property by name.
+    /// </summary>
     [TestMethod]
     public void SetPropertyValue_by_name()
     {
@@ -31,6 +40,9 @@ public sealed class DiagnosticsObjectExtensionsTests
         Assert.AreEqual(3, h.Id);
     }
 
+    /// <summary>
+    /// This method verifies TryGetPropertyValue succeeds for a simple expression.
+    /// </summary>
     [TestMethod]
     public void TryGetPropertyValue_with_expression()
     {

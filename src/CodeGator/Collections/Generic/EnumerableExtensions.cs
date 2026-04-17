@@ -1,4 +1,4 @@
-﻿
+
 #pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace System.Collections.Generic;
 #pragma warning restore IDE0130 // Namespace does not match folder structure
@@ -9,12 +9,6 @@ namespace System.Collections.Generic;
 /// </summary>
 public static partial class EnumerableExtensions
 {
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
-
     /// <summary>
     /// This method creates a <see cref="Dictionary{TKey, TValue}"/> from 
     /// an <see cref="IEnumerable{T}"/> according to the specified key 
@@ -45,7 +39,7 @@ public static partial class EnumerableExtensions
         return dictionary;
     }
 
-    // *******************************************************************
+
 
     /// <summary>
     /// This method returns elements from a sequence that are distinct, on 
@@ -69,7 +63,7 @@ public static partial class EnumerableExtensions
             .AsEnumerable();
     }
 
-    // *******************************************************************
+
 
     /// <summary>
     /// This method filters out elements based on the contents of a comma
@@ -106,7 +100,7 @@ public static partial class EnumerableExtensions
         return result;
     }
 
-    // *******************************************************************
+
 
     /// <summary>
     /// This method filters out elements based on the contents of a comma
@@ -143,7 +137,6 @@ public static partial class EnumerableExtensions
         return results;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method recursively iterates through an enumerable sequence
@@ -252,7 +245,6 @@ public static partial class EnumerableExtensions
         }
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method iterates through an enumerable sequence applying the 
@@ -323,6 +315,4 @@ public static partial class EnumerableExtensions
                 );
         }
     }
-
-    #endregion
 }

@@ -1,45 +1,30 @@
-﻿
+
 namespace CodeGator;
 
 // I copied this code from our AI overlords and modified it for my needs.
 
 /// <summary>
-/// This class represents the results of an operation.
+/// This class represents the outcome of an operation without a typed value.
 /// </summary>
 public class Result
 {
-    // *******************************************************************
-    // Properties.
-    // *******************************************************************
-
-    #region Properties
-
     /// <summary>
-    /// This property indicates whether the result is a success.
+    /// This property indicates whether the result represents success.
     /// </summary>
     public bool IsSuccess { get; }
 
     /// <summary>
-    /// This property indicates whether the result is a failuer.
+    /// This property indicates whether the result represents failure.
     /// </summary>
     public bool IsFailure => !IsSuccess;
 
     /// <summary>
-    /// This property contains the error for the result.
+    /// This property holds the error details when the result is a failure.
     /// </summary>
     public Error Error { get; }
 
-    #endregion
-
-    // *******************************************************************
-    // Constructors.
-    // *******************************************************************
-
-    #region Constructors
-
     /// <summary>
-    /// This constructor creates a new instance of the <see cref="Result"/>
-    /// class.
+    /// This constructor initializes a new instance of the Result class.
     /// </summary>
     protected Result()
     {
@@ -47,13 +32,10 @@ public class Result
         Error = Error.None;
     }
 
-    // *******************************************************************
-
     /// <summary>
-    /// This constructor creates a new instance of the <see cref="Result"/>
-    /// class.
+    /// This constructor initializes a new instance of the Result class.
     /// </summary>
-    /// <param name="error">The error to use for the result.</param>
+    /// <param name="error">The error that describes the failure.</param>
     protected Result(
         [NotNull] Error error
         )
@@ -62,80 +44,50 @@ public class Result
         Error = error;
     }
 
-    #endregion
-
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
-
     /// <summary>
-    /// This method creates a success result with no data.
+    /// This method returns a successful result without a payload value.
     /// </summary>
-    /// <returns>A <see cref="Result"/> instance.</returns>
+    /// <returns>A successful <see cref="Result"/> instance.</returns>
     public static Result Success() => new();
 
-    // *******************************************************************
-
     /// <summary>
-    /// This method creates a failure result with no data.
+    /// This method returns a failed result with the specified error.
     /// </summary>
-    /// <param name="error">The error to use with the result.</param>
-    /// <returns>A <see cref="Result"/> instance.</returns>
+    /// <param name="error">The error that describes the failure.</param>
+    /// <returns>A failed <see cref="Result"/> instance.</returns>
     public static Result Failure(
         [NotNull] Error error
         ) => new(error);
-    
-    #endregion
 }
 
 
 
 /// <summary>
-/// This class represents the results of an operation.
+/// This class represents the outcome of an operation with an optional value.
 /// </summary>
-/// <typeparam name="T">The type of data for the result</typeparam>
+/// <typeparam name="T">The type of the value carried on success.</typeparam>
 public class Result<T> : Result
 {
-    // *******************************************************************
-    // Properties.
-    // *******************************************************************
-
-    #region Properties
+    /// <summary>
+    /// This property holds the value when the result is successful.
+    /// </summary>
+    public T? Data { get; }
 
     /// <summary>
-    /// This property contains the data associated with the result.
+    /// This constructor initializes a new instance of the <see cref="Result{T}"/> class.
     /// </summary>
-    public T Data { get; }
-
-    #endregion
-
-    // *******************************************************************
-    // Constructors.
-    // *******************************************************************
-
-    #region Constructors
-
-    /// <summary>
-    /// This constructor creates a new instance of the <see cref="Result"/>
-    /// class.
-    /// </summary>
-    /// <param name="data">The data to use with this result.</param>
+    /// <param name="data">The value to associate with this successful result.</param>
     protected Result(
-        T data
+        T? data
         ) : base()
     {
         Data = data;
     }
 
-    // *******************************************************************
-
     /// <summary>
-    /// This constructor creates a new instance of the <see cref="Result"/>
-    /// class.
+    /// This constructor initializes a new instance of the <see cref="Result{T}"/> class.
     /// </summary>
-    /// <param name="error">The error to use with the result.</param>
+    /// <param name="error">The error that describes the failure.</param>
     protected Result(
         [NotNull] Error error
         ) : base(error)
@@ -143,33 +95,21 @@ public class Result<T> : Result
         Data = default!;
     }
 
-    #endregion
-
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
-
     /// <summary>
-    /// This method creates a success result with data.
+    /// This method returns a successful result containing the given value.
     /// </summary>
-    /// <param name="data">The data to use with this result.</param>
-    /// <returns>A <see cref="Result"/> instance.</returns>
+    /// <param name="data">The value to attach to the result.</param>
+    /// <returns>A successful <see cref="Result{T}"/> instance.</returns>
     public static Result<T> Success(
         T data
         ) => new(data);
 
-    // *******************************************************************
-
     /// <summary>
-    /// This method creates a success result with default data.
+    /// This method returns a failed typed result with the specified error.
     /// </summary>
-    /// <param name="error">The error to use with this result.</param>
-    /// <returns>A <see cref="Result"/> instance.</returns>
-    public new static Result<T> Failure(
+    /// <param name="error">The error that describes the failure.</param>
+    /// <returns>A failed <see cref="Result{T}"/> instance.</returns>
+    public new static Result<T?> Failure(
         [NotNull] Error error
         ) => new(error);
-
-    #endregion
 }

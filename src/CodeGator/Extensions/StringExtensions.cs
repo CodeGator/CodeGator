@@ -4,15 +4,10 @@ namespace System;
 #pragma warning restore IDE0130
 
 /// <summary>
-/// This class utility contains extension methods for the <see cref="string"/> type.
+/// This class provides extension methods for common string operations.
 /// </summary>
 public static partial class StringExtensions
 {
-    // *******************************************************************
-    // Public methods.
-    // *******************************************************************
-
-    #region Public methods
 
     /// <summary>
     /// This method performs a simple equality match of the two strings that 
@@ -58,7 +53,6 @@ public static partial class StringExtensions
         return result;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method replaces a <c>[FriendlyName]</c> token in the <paramref name="value"/>
@@ -86,7 +80,6 @@ public static partial class StringExtensions
         return value;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method replaces a <c>[Now]</c> token in the <paramref name="value"/>
@@ -110,7 +103,6 @@ public static partial class StringExtensions
         return value;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method replaces a <c>[NowUtc]</c> token in the <paramref name="value"/>
@@ -134,7 +126,6 @@ public static partial class StringExtensions
         return value;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method replaces a <c>[Drive]</c> token in the <paramref name="value"/>
@@ -178,7 +169,6 @@ public static partial class StringExtensions
         return value;
     }
 
-    // *******************************************************************
 
     /// <summary>
     /// This method exposes the given number of characters in the specified string, while 
@@ -202,6 +192,4 @@ public static partial class StringExtensions
         var obfuscated = new string('*', length - visibleCharacters);   
         return $"{exposed}{obfuscated}";
     }
-
-    #endregion
 }
