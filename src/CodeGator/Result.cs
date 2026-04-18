@@ -101,7 +101,7 @@ public class Result<T> : Result
     /// <param name="data">The value to attach to the result.</param>
     /// <returns>A successful <see cref="Result{T}"/> instance.</returns>
     public static Result<T> Success(
-        T data
+        T? data
         ) => new(data);
 
     /// <summary>
@@ -109,7 +109,7 @@ public class Result<T> : Result
     /// </summary>
     /// <param name="error">The error that describes the failure.</param>
     /// <returns>A failed <see cref="Result{T}"/> instance.</returns>
-    public new static Result<T?> Failure(
+    public new static Result<T> Failure(
         [NotNull] Error error
         ) => new(error);
 }
