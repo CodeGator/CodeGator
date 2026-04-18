@@ -1,4 +1,4 @@
-﻿
+
 #pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace System.IO;
 #pragma warning restore IDE0130 // Namespace does not match folder structure
@@ -9,7 +9,7 @@ namespace System.IO;
 /// </summary>
 public static partial class GuardExtensions
 {
-
+    
     /// <summary>
     /// This method throws an exception if the <paramref name="argValue"/>
     /// argument contains a value that is not a readable stream.
