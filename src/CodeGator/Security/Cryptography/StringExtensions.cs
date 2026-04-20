@@ -1,4 +1,4 @@
-﻿
+
 #pragma warning disable IDE0130
 namespace System.Security.Cryptography;
 #pragma warning restore IDE0130
@@ -72,6 +72,25 @@ public static partial class StringExtensions
         return base64;
     }
 
+    /// <summary>
+    /// This method calculates an SHA256 hash for the given string.
+    /// </summary>
+    /// <param name="value">The value to be hashed.</param>
+    /// <returns>The SHA256 hash for the <paramref name="value"/> parameter.</returns>
+    public static byte[] ToSha256Bytes(
+        [NotNull] this string value
+        )
+    {
+        if (string.IsNullOrEmpty(value))
+        {
+            return [];
+        }
+
+        var bytes = Encoding.UTF8.GetBytes(value);
+        var hash = SHA256.HashData(bytes);
+        return hash;
+    }
+
 
     /// <summary>
     /// This method calculates an SHA512 hash for the given string.
@@ -92,5 +111,24 @@ public static partial class StringExtensions
 
         var base64 = Convert.ToBase64String(hash);
         return base64;
+    }
+
+    /// <summary>
+    /// This method calculates an SHA512 hash for the given string.
+    /// </summary>
+    /// <param name="value">The value to be hashed.</param>
+    /// <returns>The SHA512 hash for the <paramref name="value"/> parameter.</returns>
+    public static byte[] ToSha512Bytes(
+        [NotNull] this string value
+        )
+    {
+        if (string.IsNullOrEmpty(value))
+        {
+            return [];
+        }
+
+        var bytes = Encoding.UTF8.GetBytes(value);
+        var hash = SHA512.HashData(bytes);
+        return hash;
     }
 }

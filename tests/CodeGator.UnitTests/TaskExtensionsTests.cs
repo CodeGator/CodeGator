@@ -1,9 +1,8 @@
-using System.Threading.Tasks;
 
 namespace CodeGator.UnitTests;
 
 /// <summary>
-/// This class verifies <see cref="global::System.Threading.Tasks.TaskExtensions"/> helpers.
+/// This class verifies TaskExtensions helpers.
 /// </summary>
 [TestClass]
 public sealed class TaskExtensionsTests
